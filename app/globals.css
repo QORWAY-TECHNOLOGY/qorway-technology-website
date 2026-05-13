@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --qorway-black: #080807;
+  --qorway-graphite: #141310;
+  --qorway-charcoal: #1d1a16;
+  --qorway-cream: #f3e8d0;
+  --qorway-sand: #d8c7a3;
+  --qorway-muted: #9c8f78;
+  --qorway-terracotta: #c8643b;
+  --qorway-copper: #a94e2c;
+  --qorway-border: rgba(243, 232, 208, 0.16);
+  --font-body: Inter;
+  --font-display: Inter;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--qorway-black);
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top left, rgba(200, 100, 59, 0.18), transparent 34rem), var(--qorway-black);
+  color: var(--qorway-cream);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--qorway-terracotta);
+  color: var(--qorway-black);
+}
+
+.qorway-container {
+  width: min(1120px, calc(100% - 32px));
+  margin-inline: auto;
+}
