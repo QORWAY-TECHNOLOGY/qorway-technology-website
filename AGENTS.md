@@ -1,4 +1,4 @@
-# QORWAY Technology Website — Codex Instructions
+# QORWAY Technology Website — Agent Instructions
 
 ## Project Role
 
@@ -10,19 +10,103 @@ QORWAY is a sovereign Decision Intelligence infrastructure for Europe.
 
 The website must feel like an institutional infrastructure website for C-level executives, technical leaders, public-sector stakeholders, investors, and enterprise architects.
 
-## Strategic Positioning
+---
 
-QORWAY builds sovereign Decision Intelligence infrastructure for organizations that need to reason, validate, execute, and govern decisions at system level.
+## Source-of-Truth Order
 
-Core statement:
+The website is downstream from the public architecture repository.
 
-“From fragmented enterprise systems to causal, constrained, executable intelligence.”
-
-The website must explain that QORWAY connects:
+Use this order:
 
 ```text
-data → reasoning → constraint validation → execution → feedback → learning
+Private Core → Public Architecture Repository → Public Website → Cross-Repo QA → ODC later
 ```
+
+The website must not invent doctrine directly from the private core.
+
+The website must communicate the public-safe narrative already validated in `qorway_technology`.
+
+---
+
+## Strategic Positioning
+
+QORWAY builds sovereign Decision Intelligence infrastructure for organizations that need to reason, validate, execute, optimize, and govern decisions at system level.
+
+Current public statement:
+
+> Governed decision infrastructure for constrained digital environments.
+
+QORWAY must be described as infrastructure for organizations operating under:
+
+- digital dependency
+- regulatory pressure
+- operational fragility
+- provider concentration
+- data residency constraints
+- supplier dependency
+- geopolitical instability
+
+---
+
+## Public Decision Loop
+
+The website may describe the public loop as:
+
+```text
+data → graph → reasoning → constraint validation → orchestration → optimization → execution → feedback → learning
+```
+
+Do not publish implementation contracts, registries, internal scoring logic, or private runtime details.
+
+---
+
+## Core Architecture
+
+QORWAY operates as a five-layer Decision Intelligence infrastructure:
+
+1. Atlas — Causal Intelligence Engine
+2. Domain Packs — Context & Business Intelligence Layer
+3. PolicyCore — Constraint Validation Layer
+4. PulseFlow — Execution Orchestration Layer
+5. GreenCore — Execution Optimization Layer
+
+These layers are supported by Knowledge Graph Infrastructure.
+
+---
+
+## Required Public Concepts
+
+The website must include public-safe explanations of:
+
+- Built for constrained digital environments
+- Sovereign Resilience
+- Workforce Capital
+- Public concepts / private implementation boundary
+- Atlas
+- Domain Packs
+- PolicyCore
+- PulseFlow
+- GreenCore
+- Knowledge Graph Infrastructure
+- Tenant boundary
+- Governance and auditability
+
+---
+
+## Public Domain Pack Categories
+
+The website may list these public-safe Domain Pack categories:
+
+- Finance
+- Supply Chain
+- CSRD / RSE
+- Regulator
+- Workforce Capital
+- Sovereign Resilience
+
+Do not expose private Domain Pack internals.
+
+---
 
 ## Public / Private Boundary
 
@@ -40,36 +124,41 @@ Do NOT expose:
 - private Domain Pack internals
 - tenant-specific data
 - proprietary execution logic
+- runtime registries
 
 The site may explain the architecture at a high level.
 
-## Core Architecture
+---
 
-QORWAY operates as a 5-layer Decision Intelligence infrastructure:
+## Required Pages
 
-1. Atlas — Causal Intelligence Engine
-2. Domain Packs — Context & Business Intelligence Layer
-3. PolicyCore — Constraint Validation Layer
-4. PulseFlow — Execution Orchestration Layer
-5. GreenCore — Execution Optimization Layer
+The public website should include:
 
-These layers are supported by the Knowledge Graph Infrastructure.
+- Home
+- Architecture
+- Decision Intelligence
+- Domain Packs
+- Governance & Security
+- Contact / Pilot
+
+Use reusable components where possible.
+
+Avoid turning the site into a dashboard or SaaS application mockup.
+
+---
 
 ## Design Principles
 
 The UI must express:
 
-1. Sovereignty by Design
-   The interface must feel secure, independent, European, institutional, and technically controlled.
+1. Sovereignty by design
+2. Causality over correlation
+3. Constraint by architecture
+4. Auditability by default
+5. Institutional credibility
+6. European technology seriousness
 
-2. Causality
-   The UI should show why decisions happen, not only what the output is.
-
-3. Constraint by Architecture
-   The visual system must show rules, validation gates, boundaries, policy layers, and controlled execution.
-
-4. Auditability by Default
-   The interface must make traces, evidence, lifecycle, validation, and feedback visually central.
+---
 
 ## Visual Identity
 
@@ -78,7 +167,6 @@ Brand style:
 - Deep black / near-black background
 - Warm beige / cream surfaces and text accents
 - Terracotta / orange accent for signal, decision, and active state
-- Pixelated pangolin symbol as the QORWAY visual anchor
 - Minimal, sovereign, architectural, high-trust, European technology aesthetic
 
 Avoid:
@@ -90,6 +178,8 @@ Avoid:
 - flashy Web3 aesthetics
 - random glassmorphism
 - overused AI orb visuals
+
+---
 
 ## Color Tokens
 
@@ -107,6 +197,8 @@ Use CSS variables and Tailwind tokens.
 --qorway-border: rgba(243, 232, 208, 0.16);
 ```
 
+---
+
 ## Technical Requirements
 
 Use:
@@ -120,6 +212,14 @@ Use:
 - No unnecessary dependencies
 - Clean reusable components
 
+`next.config.mjs` should preserve static export settings:
+
+```js
+output: "export"
+images: { unoptimized: true }
+trailingSlash: true
+```
+
 Run before completion:
 
 ```bash
@@ -129,18 +229,7 @@ npm run build
 
 If errors occur, fix them before final response.
 
-## Pages Required
-
-Initial scope:
-
-- Home
-- Architecture
-- Decision Intelligence
-- Domain Packs
-- Governance & Security
-- Contact / Pilot
-
-The first implementation may ship the Home page and reusable foundations first, then expand iteratively.
+---
 
 ## Review Guidelines
 
@@ -149,6 +238,9 @@ Before finishing, review:
 - Does it look like sovereign infrastructure, not SaaS?
 - Does it protect private IP?
 - Are all architecture concepts public-safe?
+- Is Sovereign Resilience visible?
+- Is Workforce Capital visible?
+- Is the public/private boundary explicit?
+- Is the site downstream from `qorway_technology`?
 - Is the design system applied consistently?
-- Is the site visually premium and credible?
 - Is the code clean, typed, and maintainable?
