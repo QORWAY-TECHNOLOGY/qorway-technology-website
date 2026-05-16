@@ -1,35 +1,13 @@
-const layers = [
-  {
-    name: "Atlas",
-    role: "Causal Intelligence Engine",
-    answer: "What should happen?"
-  },
-  {
-    name: "Domain Packs",
-    role: "Context & Business Intelligence Layer",
-    answer: "How does this domain work structurally?"
-  },
-  {
-    name: "PolicyCore",
-    role: "Constraint Validation Layer",
-    answer: "Is this allowed to move forward?"
-  },
-  {
-    name: "PulseFlow",
-    role: "Execution Orchestration Layer",
-    answer: "How does this decision move through systems?"
-  },
-  {
-    name: "GreenCore",
-    role: "Execution Optimization Layer",
-    answer: "Where and how should this execute optimally?"
-  }
-];
+import { Hero, PageShell, Panel, SectionLabel, TextCard, layers, publicDomainPacks } from "@/components/site";
 
 const loop = [
   "Data",
-  "Reasoning",
-  "Constraint validation",
+  "Knowledge Graph",
+  "Atlas reasoning",
+  "Domain context",
+  "PolicyCore validation",
+  "PulseFlow orchestration",
+  "GreenCore optimization",
   "Execution",
   "Feedback",
   "Learning"
@@ -42,73 +20,36 @@ const principles = [
   "Auditability by default"
 ];
 
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-qorway-terracotta">
-      {children}
-    </p>
-  );
-}
-
-function Header() {
-  return (
-    <header className="border-b border-qorway-border bg-qorway-black/80 backdrop-blur">
-      <div className="qorway-container flex min-h-20 items-center justify-between">
-        <a href="#top" className="flex items-center gap-3" aria-label="QORWAY Technology home">
-          <span className="grid h-9 w-9 place-items-center border border-qorway-border bg-qorway-charcoal text-qorway-terracotta">
-            Q
-          </span>
-          <span className="font-display text-sm font-semibold uppercase tracking-[0.22em]">
-            QORWAY Technology
-          </span>
-        </a>
-        <nav className="hidden items-center gap-8 text-sm text-qorway-sand md:flex" aria-label="Primary navigation">
-          <a href="#architecture">Architecture</a>
-          <a href="#governance">Governance</a>
-          <a href="#boundary">Boundary</a>
-          <a href="#contact" className="text-qorway-cream">Pilot</a>
-        </nav>
-      </div>
-    </header>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="border-t border-qorway-border py-10 text-sm text-qorway-muted">
-      <div className="qorway-container flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <p>© 2026 QORWAY Technology. All rights reserved.</p>
-        <p>Sovereign Decision Intelligence Infrastructure for Europe.</p>
-      </div>
-    </footer>
-  );
-}
-
 export default function Home() {
   return (
-    <main id="top" className="min-h-screen bg-qorway-grid bg-[length:48px_48px]">
-      <Header />
-
-      <section className="qorway-container grid gap-12 py-24 md:grid-cols-[1.08fr_0.92fr] md:items-center md:py-32">
-        <div>
-          <SectionLabel>Sovereign Decision Intelligence Infrastructure</SectionLabel>
-          <h1 className="font-display text-5xl font-semibold leading-tight tracking-[-0.05em] text-qorway-cream md:text-7xl">
-            From fragmented enterprise systems to causal, constrained, executable intelligence.
-          </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-qorway-sand">
-            QORWAY builds the infrastructure layer that helps organizations reason, validate, execute, and govern decisions at system level.
-          </p>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <a href="#architecture" className="border border-qorway-terracotta bg-qorway-terracotta px-6 py-3 text-sm font-semibold text-qorway-black">
+    <PageShell>
+      <Hero
+        eyebrow="Sovereign Decision Intelligence Infrastructure"
+        title="Governed decision infrastructure for constrained digital environments."
+        body="QORWAY helps organizations reason, validate, orchestrate, optimize, and govern decisions under digital dependency, regulatory pressure, operational fragility, provider concentration, data residency constraints, and geopolitical instability."
+        cta={
+          <div className="flex flex-col gap-4 sm:flex-row">
+            <a href="/architecture/" className="border border-qorway-terracotta bg-qorway-terracotta px-6 py-3 text-sm font-semibold text-qorway-black">
               Explore architecture
             </a>
-            <a href="#boundary" className="border border-qorway-border px-6 py-3 text-sm font-semibold text-qorway-cream">
-              Public / private boundary
+            <a href="/contact/" className="border border-qorway-border px-6 py-3 text-sm font-semibold text-qorway-cream">
+              Discuss a pilot
             </a>
           </div>
-        </div>
+        }
+      />
 
-        <div className="rounded-[2rem] border border-qorway-border bg-qorway-graphite/88 p-6 shadow-sovereign">
+      <section className="qorway-container grid gap-6 py-10 md:grid-cols-[1.05fr_0.95fr] md:items-start">
+        <div>
+          <SectionLabel>Built for constrained digital environments</SectionLabel>
+          <h2 className="max-w-3xl text-4xl font-semibold tracking-[-0.04em] text-qorway-cream md:text-5xl">
+            QORWAY is not another interface on top of fragmented systems.
+          </h2>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-qorway-sand">
+            It is a public-safe architecture for organizations that need decisions to remain causal, constrained, auditable, resilient, and executable when the operating environment becomes unstable.
+          </p>
+        </div>
+        <Panel>
           <div className="mb-6 flex items-center justify-between border-b border-qorway-border pb-4">
             <span className="text-xs uppercase tracking-[0.22em] text-qorway-muted">Decision loop</span>
             <span className="text-xs text-qorway-terracotta">audit-ready</span>
@@ -123,11 +64,11 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
+        </Panel>
       </section>
 
       <section className="qorway-container py-20" id="architecture">
-        <SectionLabel>Core system architecture</SectionLabel>
+        <SectionLabel>Core architecture</SectionLabel>
         <div className="grid gap-5 md:grid-cols-5">
           {layers.map((layer) => (
             <article key={layer.name} className="rounded-3xl border border-qorway-border bg-qorway-graphite/82 p-5">
@@ -141,21 +82,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="qorway-container grid gap-6 py-20 md:grid-cols-2" id="governance">
-        <div className="rounded-[2rem] border border-qorway-border bg-qorway-charcoal/80 p-8">
-          <SectionLabel>What QORWAY is not</SectionLabel>
-          <ul className="space-y-4 text-qorway-sand">
-            <li>Not a SaaS application.</li>
-            <li>Not an analytics dashboard.</li>
-            <li>Not a chatbot.</li>
-            <li>Not a generic workflow automation tool.</li>
-          </ul>
-        </div>
-        <div className="rounded-[2rem] border border-qorway-border bg-qorway-charcoal/80 p-8">
-          <SectionLabel>What QORWAY is</SectionLabel>
-          <p className="text-2xl font-semibold leading-10 text-qorway-cream">
-            A governed decision infrastructure runtime designed to make intelligence causal, constrained, executable, auditable, and continuously improved.
-          </p>
+      <section className="qorway-container grid gap-6 py-20 md:grid-cols-2">
+        <TextCard
+          title="Sovereign Resilience"
+          body="QORWAY models provider dependency, data residency, supplier concentration, crash readiness, regulatory monitoring, and operational autonomy as decision architecture concerns."
+        />
+        <TextCard
+          title="Workforce Capital"
+          body="QORWAY treats human capability, AI-assisted work, upskilling, oversight, productivity, and operational autonomy as governed decision infrastructure."
+        />
+      </section>
+
+      <section className="qorway-container py-20">
+        <SectionLabel>Public Domain Pack categories</SectionLabel>
+        <div className="grid gap-4 md:grid-cols-3">
+          {publicDomainPacks.map((pack) => (
+            <div key={pack} className="rounded-3xl border border-qorway-border bg-qorway-graphite/72 p-6 text-lg font-semibold text-qorway-cream">
+              {pack}
+            </div>
+          ))}
         </div>
       </section>
 
@@ -163,7 +108,7 @@ export default function Home() {
         <SectionLabel>Design principles</SectionLabel>
         <div className="grid gap-4 md:grid-cols-4">
           {principles.map((principle) => (
-            <div key={principle} className="rounded-3xl border border-qorway-border bg-qorway-graphite/72 p-6 text-lg font-semibold text-qorway-cream">
+            <div key={principle} className="rounded-3xl border border-qorway-border bg-qorway-charcoal/78 p-6 text-lg font-semibold text-qorway-cream">
               {principle}
             </div>
           ))}
@@ -171,38 +116,36 @@ export default function Home() {
       </section>
 
       <section className="qorway-container py-20" id="boundary">
-        <div className="rounded-[2rem] border border-qorway-border bg-qorway-graphite/88 p-8 md:p-10">
-          <SectionLabel>Public / private boundary</SectionLabel>
+        <Panel className="md:p-10">
+          <SectionLabel>Public concepts / private implementation boundary</SectionLabel>
           <div className="grid gap-8 md:grid-cols-2">
             <div>
               <h2 className="text-3xl font-semibold tracking-[-0.03em] text-qorway-cream">Public website</h2>
               <p className="mt-4 leading-8 text-qorway-sand">
-                Communicates vision, architecture, governance principles, and public-safe system language.
+                Communicates vision, architecture, governance principles, sovereign resilience, Workforce Capital, and public-safe system language.
               </p>
             </div>
             <div>
               <h2 className="text-3xl font-semibold tracking-[-0.03em] text-qorway-cream">Private implementation</h2>
               <p className="mt-4 leading-8 text-qorway-sand">
-                Protects schemas, prompts, scoring models, causal rules, production contracts, and real Domain Pack internals.
+                Protects implementation depth, private Domain Pack internals, runtime details, tenant material, and proprietary execution logic.
               </p>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       <section className="qorway-container py-24" id="contact">
         <div className="rounded-[2rem] border border-qorway-border bg-qorway-terracotta p-10 text-qorway-black md:p-14">
           <p className="text-xs font-semibold uppercase tracking-[0.28em]">Pilot conversations</p>
           <h2 className="mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.04em] md:text-5xl">
-            Build a decision infrastructure before adding another layer of disconnected AI.
+            Build decision infrastructure before adding another disconnected AI layer.
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-8">
-            QORWAY is designed for regulated, sovereign, and high-accountability environments where decisions must be explainable, governed, and traceable by default.
+            QORWAY is designed for regulated, sovereign, and high-accountability environments where decisions must be explainable, governed, resilient, and traceable by default.
           </p>
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </PageShell>
   );
 }
